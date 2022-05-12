@@ -5,3 +5,4 @@ Projeto de uma lista de contatos com NodeJS
 - NodeJS
 - NodeMon
 - Express
+- Mongoose
