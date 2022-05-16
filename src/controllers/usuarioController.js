@@ -3,6 +3,8 @@ import usuarios from "../models/Usuario.js";
 class UsuarioController {
 
     static getUsuarios = (req, res) => {
+        // #swagger.tags = ['Usuários']
+
         usuarios.find()
             .exec((erro, usuarios) => {
                 res.status(200).json(usuarios);
@@ -10,6 +12,8 @@ class UsuarioController {
     }
 
     static getUsuariosById = (req, res) => {
+        // #swagger.tags = ['Usuários']
+
         const id = req.params.id;
 
         usuarios.findById(id)
@@ -26,6 +30,8 @@ class UsuarioController {
     }
 
     static createUsuarios = (req, res) => {
+        // #swagger.tags = ['Usuários']
+
         let usuario = new usuarios(req.body);
         usuario.save((err) => {
             if(err) {
@@ -39,6 +45,8 @@ class UsuarioController {
     }
 
     static updateUsuarios = (req, res) => {
+        // #swagger.tags = ['Usuários']
+
         const id = req.params.id;
 
         usuarios.findByIdAndUpdate(id, {$set: req.body}, (err) => {
@@ -57,6 +65,8 @@ class UsuarioController {
     }
 
     static deleteUsuarios = (req, res) => {
+        // #swagger.tags = ['Usuários']
+
         const id = req.params.id;
 
         usuarios.findByIdAndDelete(id, (err) => {
