@@ -3,6 +3,8 @@ import contatos from "../models/Contato.js";
 class ContatoController {
 
     static getContatos = (req, res) => {
+        // #swagger.tags = ['Contatos']
+
         contatos.find()
             .populate('usuario')
             .exec((erro, contatos) => {
@@ -11,6 +13,8 @@ class ContatoController {
     }
 
     static getContatosById = (req, res) => {
+        // #swagger.tags = ['Contatos']
+
         const id = req.params.id;
 
         contatos.findById(id)
@@ -28,6 +32,8 @@ class ContatoController {
     }
 
     static getContatosByUsuario = (req, res) => {
+        // #swagger.tags = ['Contatos']
+
         const usuario = req.query.usuario
 
         contatos.find({'usuario': usuario})
@@ -38,6 +44,8 @@ class ContatoController {
     }
 
     static createContatos = (req, res) => {
+        // #swagger.tags = ['Contatos']
+
         let contato = new contatos(req.body);
         contato.save((err) => {
             if(err) {
@@ -51,6 +59,8 @@ class ContatoController {
     }
 
     static updateContatos = (req, res) => {
+        // #swagger.tags = ['Contatos']
+
         const id = req.params.id;
 
         contatos.findByIdAndUpdate(id, {$set: req.body}, (err) => {
@@ -69,6 +79,8 @@ class ContatoController {
     }
 
     static deleteContatos = (req, res) => {
+        // #swagger.tags = ['Contatos']
+
         const id = req.params.id;
 
         contatos.findByIdAndDelete(id, (err) => {

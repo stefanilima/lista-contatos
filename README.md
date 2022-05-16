@@ -37,6 +37,16 @@ npm run dev
 http://localhost:3000/
 ```
 
+### Documentação API
+
+Esta API foi documentada utilizando o swagger.
+
+Para atualizar a documentação execute o comando abaixo e acesse através do link: http://localhost:3000/api-doc
+
+```
+npm run swagger-autogen
+```
+
 ***
 
 ### Licença
