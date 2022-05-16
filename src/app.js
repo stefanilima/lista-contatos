@@ -10,7 +10,7 @@ db.once('open', () => {
 });
 
 const app = express();
-const swaggerFile = JSON.parse(await readFile("./swagger/swagger.json"));
+const swaggerFile = JSON.parse(await readFile("./doc/swagger.json"));
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(express.json());
