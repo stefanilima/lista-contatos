@@ -4,6 +4,7 @@ class ContatoController {
 
     static getContatos = (req, res) => {
         contatos.find()
+            .populate('usuario')
             .exec((erro, contatos) => {
                 res.status(200).json(contatos);
             });
@@ -13,6 +14,7 @@ class ContatoController {
         const id = req.params.id;
 
         contatos.findById(id)
+            .populate('usuario', 'nome')
             .exec((err, contatos) => {
             if(err) {
                 res.status(400).send(
@@ -23,6 +25,16 @@ class ContatoController {
                 res.status(200).send(contatos);
             }
         })
+    }
+
+    static getContatosByUsuario = (req, res) => {
+        const usuario = req.query.usuario
+
+        contatos.find({'usuario': usuario})
+            .populate('usuario', 'nome')
+            .exec((err, contatos) => {
+                res.status(200).send(contatos);
+            });
     }
 
     static createContatos = (req, res) => {

@@ -5,6 +5,7 @@ const router = express.Router();
 
 router
     .get('/contatos', ContatoController.getContatos)
+    .get('/contatos/busca', ContatoController.getContatosByUsuario)
     .get('/contatos/:id', ContatoController.getContatosById)
     .post('/contatos', ContatoController.createContatos)
     .put('/contatos/:id', ContatoController.updateContatos)

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const contatoSchema = new mongoose.Schema(
+const usuarioSchema = new mongoose.Schema(
     {
         id: {
             type: String
@@ -13,23 +13,20 @@ const contatoSchema = new mongoose.Schema(
             type: String, 
             required: true
         },
-        telefone: {
-            type: String
-        },
-        endereco: {
-            type: String
-        },
-        usuario: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'usuarios',
+        senha: {
+            type: String,
             required: true
         },
         dataNascimento: {
             type: Date
+        },
+        dataCriacao: {
+            type: Date,
+            default: Date.now()
         }
     }
 )
 
-const contatos = mongoose.model('contatos', contatoSchema);
+const usuarios = mongoose.model('usuarios', usuarioSchema);
 
-export default contatos;
+export default usuarios;
